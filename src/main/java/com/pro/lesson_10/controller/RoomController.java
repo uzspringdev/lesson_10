@@ -37,7 +37,7 @@ public class RoomController {
 
     @GetMapping(value = "/hotel/{hotelId}")
     public ResponseEntity<Page<Room>> getAllByHotelId(@PathVariable Long hotelId, @RequestParam Integer page) {
-        return service.getAllByHotelId(hotelId, page, 10);
+        return service.getAllByHotelId(hotelId, page, 2);
     }
 
     @PutMapping(value = "/{id}")
