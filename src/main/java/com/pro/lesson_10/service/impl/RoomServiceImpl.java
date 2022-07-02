@@ -80,9 +80,11 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public ResponseEntity<List<Room>> getAllByHotelId(Long hotelId) {
+    public ResponseEntity<Page<Room>> getAllByHotelId(Long hotelId, Integer page, Integer size) {
         try {
-            List<Room> roomList = roomRepository.getAllByHotelId(hotelId);
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Room> roomList = roomRepository.getAllByHotelId(hotelId, pageable);
+
             return new ResponseEntity<>(roomList, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

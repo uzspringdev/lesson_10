@@ -24,7 +24,7 @@ public interface RoomService {
     ResponseEntity<Room> getById(Long id);
 
     //GET ROOM BY HOTEL ID
-    ResponseEntity<List<Room>> getAllByHotelId(Long hotelId);
+    ResponseEntity<Page<Room>> getAllByHotelId(Long hotelId, Integer page, Integer size);
 
     //UPDATE ROOM
     ResponseEntity<Room> update(Long id, RoomDto roomDto);
