@@ -14,19 +14,22 @@ public interface RoomService {
     //ADD HOTEL
     ResponseEntity<Room> add(RoomDto roomDto);
 
-    //GET ALL HOTELS
+    //GET ALL ROOMS
     ResponseEntity<List<Room>> getAll();
 
-    //GET PAGEABLE HOTELS
+    //GET PAGEABLE ROOMS
     ResponseEntity<Page<Room>> getPage(Integer page, Integer size);
 
-    //GET HOTEL BY ID
+    //GET ROOM BY ID
     ResponseEntity<Room> getById(Long id);
 
-    //UPDATE HOTEL
+    //GET ROOM BY HOTEL ID
+    ResponseEntity<List<Room>> getAllByHotelId(Long hotelId);
+
+    //UPDATE ROOM
     ResponseEntity<Room> update(Long id, RoomDto roomDto);
 
-    //DELETE HOTEL
+    //DELETE ROOM
     ResponseEntity<String> delete(Long id);
 
 }

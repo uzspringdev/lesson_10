@@ -80,6 +80,16 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public ResponseEntity<List<Room>> getAllByHotelId(Long hotelId) {
+        try {
+            List<Room> roomList = roomRepository.getAllByHotelId(hotelId);
+            return new ResponseEntity<>(roomList, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
     public ResponseEntity<Room> update(Long id, RoomDto roomDto) {
         try {
             Optional<Room> optionalRoom = roomRepository.findById(id);

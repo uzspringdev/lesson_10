@@ -1,5 +1,6 @@
 package com.pro.lesson_10.controller;
 
+import com.pro.lesson_10.entity.Hotel;
 import com.pro.lesson_10.entity.Room;
 import com.pro.lesson_10.payload.RoomDto;
 import com.pro.lesson_10.service.RoomService;
@@ -32,6 +33,11 @@ public class RoomController {
     @GetMapping(value = "/page")
     public ResponseEntity<Page<Room>> getPage(@RequestParam Integer page) {
         return service.getPage(page, 10);
+    }
+
+    @GetMapping(value = "/hotel/{hotelId}")
+    public ResponseEntity<List<Room>> getAllByHotelId(@PathVariable Long hotelId) {
+        return service.getAllByHotelId(hotelId);
     }
 
     @PutMapping(value = "/{id}")
